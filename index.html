@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sana Özel ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #12000b, #4b001d);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.heart {
+    font-size: 100px;
+    cursor: pointer;
+    animation: kalp 1s infinite alternate;
+}
+
+@keyframes kalp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.message {
+    display: none;
+    background: rgba(255,255,255,0.12);
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    backdrop-filter: blur(10px);
+}
+
+.message h2 {
+    color: #ff6b9d;
+}
+
+.message p {
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff3975;
+    color: white;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Sana küçük bir sürprizim var ❤️</h1>
+
+    <div class="heart" onclick="ac()">❤️</div>
+
+    <div class="message" id="mesaj">
+        <h2>Sana...</h2>
+
+        <p>
+        Belki bunu beklemiyordun.
+        Ama bazı insanlar vardır,
+        hayatına girer ve her şeyi biraz daha güzel yapar.
+        </p>
+
+        <p>
+        İyi ki varsın. ❤️
+        </p>
+
+        <button onclick="ac()">Tekrar aç ❤️</button>
+    </div>
+
+</div>
+
+<script>
+function ac() {
+    document.querySelector(".heart").style.display = "none";
+    document.querySelector("h1").style.display = "none";
+    document.getElementById("mesaj").style.display = "block";
+}
+</script>
+
+</body>
+</html>
