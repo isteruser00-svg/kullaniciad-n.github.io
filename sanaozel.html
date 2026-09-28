@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sana Özel ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #16000d, #650025);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+#slide {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.photo {
+    max-width: 92vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 22px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.text-card {
+    width: 90%;
+    max-width: 500px;
+    padding: 30px 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.text-card h1 {
+    color: #ff75a7;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.text-card p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+.heart {
+    font-size: 45px;
+    margin-top: 15px;
+    animation: kalp 1s infinite alternate;
+}
+
+@keyframes kalp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.fade {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="slide"></div>
+
+<script>
+
+const slides = [
+
+    // FOTOĞRAF 1
+    {
+        type: "image",
+        src: "foto1.jpg"
+    },
+
+    // YAZI 1
+    {
+        type: "text",
+        title: "Sana... ❤️",
+        text: "Bazı anlar vardır, insanın aklında kalır. Bu da onlardan biri."
+    },
+
+    // FOTOĞRAF 2
+    {
+        type: "image",
+        src: "foto2.jpg"
+    },
+
+    // YAZI 2
+    {
+        type: "text",
+        title: "Bir anı... 💕",
+        text: "Bir fotoğraf sadece bir görüntü değildir. Bazen içinde kocaman bir anı saklar."
+    },
+
+    // FOTOĞRAF 3
+    {
+        type: "image",
+        src: "foto3.jpg"
+    },
+
+    // YAZI 3
+    {
+        type: "text",
+        title: "Güzel şeyler... ❤️",
+        text: "Bazı insanlar ve bazı anılar, üzerinden zaman geçse bile değerini kaybetmez."
+    },
+
+    // FOTOĞRAF 4
+    {
+        type: "image",
+        src: "foto4.jpg"
+    },
+
+    // SON MESAJ
+    {
+        type: "text",
+        title: "Ve son olarak... ❤️",
+        text: "Belki bu sadece küçük bir sayfa. Ama içinde güzel bir düşünce var. İyi ki varsın. ❤️"
+    }
+
+];
+
+let current = 0;
+
+function showSlide() {
+
+    const container = document.getElementById("slide");
+    const slide = slides[current];
+
+    container.className = "";
+    
+    // Animasyonu yeniden başlat
+    void container.offsetWidth;
+    container.classList.add("fade");
+
+    if (slide.type === "image") {
+
+        container.innerHTML = `
+            <img
+                class="photo"
+                src="${slide.src}"
+                alt="Fotoğraf"
+            >
+        `;
+
+    } else {
+
+        container.innerHTML = `
+            <div class="text-card">
+                <h1>${slide.title}</h1>
+                <p>${slide.text}</p>
+                <div class="heart">❤️</div>
+            </div>
+        `;
+
+    }
+}
+
+function nextSlide() {
+
+    if (current < slides.length - 1) {
+        current++;
+        showSlide();
+    }
+
+}
+
+// Ekranın herhangi bir yerine dokununca geç
+document.body.addEventListener("pointerup", nextSlide);
+
+// İlk ekran
+showSlide();
+
+</script>
+
+</body>
+</html>
